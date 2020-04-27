@@ -1,5 +1,5 @@
 <?php 
 
-echo "Hola Mundo";
+require_once($_SERVER['DOCUMENT_ROOT']. '/mindblow/path.php');
 
 ?>
