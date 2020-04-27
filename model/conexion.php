@@ -1,10 +1,8 @@
 <?php
 
-class Conexion
-{
+class Conexion{
 
-    public static function conectar()
-    {
+    public static function conectar()    {
         try {
             $conn = new PDO('mysql:host=localhost; dbname = mindblow', 'root', '');
             $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
