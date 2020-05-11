@@ -2,16 +2,19 @@
 
 class Conexion{
 
-    public static function conectar()    {
+    public static function conectar(){
         try {
-            $conn = new PDO('mysql:host=localhost; dbname = mindblow', 'root', '');
-            $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            $conn->exec("SET NAMES UTF8");
-        } catch (Exception $e) {
-            die("Error " . $e->getMessage());
-            echo "En la linea: " . $e->getLine();
+            $conect = "mysql:host = localhost; dbname=mindblow; charset=utf8";
+            $options = [
+                PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+                PDO::ATTR_EMULATE_PREPARES => false,
+
+            ];
+            $conn = new PDO($conect, "root", "", $options);
+            return $conn;
+        } catch (PDOException $e) {
+            print_r('Error: ' . $e->getMessage());
         }
-        return $conn;
     }
 }
 
