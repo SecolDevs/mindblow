@@ -16,7 +16,7 @@ class usuario_Controller{
                 $respuesta = $this->usuario_Mod->listar_Usuarios($datos);
                 if ($respuesta['email_Usuario'] == $_POST['email_Usuario'] && $respuesta['password_Usuario'] == $_POST['password_Usuario'] && $respuesta['estado_Usuario'] == 'Activo'){
                     session_start();
-                    $_SESSION['Ok'];
+                    $_SESSION['session'] = 'Ok';
                     echo "Correcto";
                 }else{
                     echo "Incorrecto";
